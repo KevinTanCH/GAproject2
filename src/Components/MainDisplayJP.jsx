@@ -16,7 +16,7 @@ const MainDisplayJP = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          query: searchWordRef,
+          query: searchWordRef.current.value,
           language: "English",
           no_english: true,
         }),
