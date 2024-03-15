@@ -17,10 +17,36 @@ const CardButtons = (props) => {
     }
   };
   const fnAddCorrect = async () => {
-    const url = "";
+    let numAddCorrect = 0;
+    numAddCorrect = Number(props.strCorrectTimes) + 1;
+    const strNumAddCorrect = numAddCorrect.toString();
+    const url = "https://api.airtable.com/v0/appLSLw8PUd7mVHHF/WordList";
     console.log(url);
     setError(null);
     try {
+      const res = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer pat6WdpNvKDDAw3LX.72ffa969bb303692f3381919787b40f6c24cd7cfee10a6e1980a42cf1c13641c",
+        },
+        body: JSON.stringify({
+          records: [
+            {
+              id: props.strAirtableID,
+              fields: {
+                NumberWrong: strNumAddCorrect,
+              },
+            },
+          ],
+        }),
+      });
+      if (!res.ok) {
+        throw new Error("something went wrong2");
+      }
+      const rawData = await res.json();
+      console.log(rawData.records);
+      setWordList(rawData.records);
     } catch (err) {
       if (err.name !== "AbortError") {
         setError(err.message);
@@ -29,10 +55,36 @@ const CardButtons = (props) => {
     }
   };
   const fnAddWrong = async () => {
-    const url = "";
+    let numAddWrong = 0;
+    numAddWrong = Number(props.strWrongTimes) + 1;
+    const strNumAddWrong = numAddWrong.toString();
+    const url = "https://api.airtable.com/v0/appLSLw8PUd7mVHHF/WordList";
     console.log(url);
     setError(null);
     try {
+      const res = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer pat6WdpNvKDDAw3LX.72ffa969bb303692f3381919787b40f6c24cd7cfee10a6e1980a42cf1c13641c",
+        },
+        body: JSON.stringify({
+          records: [
+            {
+              id: props.strAirtableID,
+              fields: {
+                NumberWrong: strNumAddWrong,
+              },
+            },
+          ],
+        }),
+      });
+      if (!res.ok) {
+        throw new Error("something went wrong2");
+      }
+      const rawData = await res.json();
+      console.log(rawData.records);
+      setWordList(rawData.records);
     } catch (err) {
       if (err.name !== "AbortError") {
         setError(err.message);
@@ -40,6 +92,7 @@ const CardButtons = (props) => {
       }
     }
   };
+
   return (
     <>
       <button onClick={fnAddCorrect}>I remembered it</button>

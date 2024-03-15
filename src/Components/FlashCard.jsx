@@ -6,6 +6,9 @@ const FlashCard = () => {
   const [error, setError] = useState(null);
   const [wordList, setWordList] = useState([]);
   const [strCardWord, setstrCardWord] = useState("");
+  const [strAirtableID, setstrAirtableID] = useState("");
+  const [strCorrectTimes, setstrCorrectTimes] = useState("");
+  const [strWrongTimes, setstrWrongTimes] = useState("");
 
   const fnWordList = async () => {
     const url = "https://api.airtable.com/v0/appLSLw8PUd7mVHHF/WordList";
@@ -29,6 +32,9 @@ const FlashCard = () => {
       console.log(intRandNum);
       setstrCardWord(wordList[intRandNum].fields.Word);
       console.log(strCardWord);
+      setstrAirtableID(wordList[intRandNum].id);
+      setstrWrongTimes(wordList[intRandNum].fields.NumberWrong);
+      setstrCorrectTimes(wordList[intRandNum].fields.NumberRight);
     } catch (err) {
       if (err.name !== "AbortError") {
         setError(err.message);
@@ -45,7 +51,12 @@ const FlashCard = () => {
     <>
       <div>Flashcard {strCardWord}</div>
       <button onClick={fnWordList}>Start</button>
-      <Card strCardWord={strCardWord}></Card>
+      <Card
+        strCardWord={strCardWord}
+        strAirtableID={strAirtableID}
+        strCorrectTimes={strCorrectTimes}
+        strWrongTimes={strWrongTimes}
+      ></Card>
     </>
   );
 };

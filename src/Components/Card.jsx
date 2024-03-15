@@ -60,11 +60,17 @@ const Card = (props) => {
 
   return (
     <div>
+      <button onClick={fnSearchWord}>Start</button>
       <div>Kana: {staReadKana}</div>
       <div>Kanji: {staReadKanji}</div>
       <div>Furigana: {staReadFurigana}</div>
       <div>Meaning: {wordMeaning}</div>
-      <CardButtons strCardWord={props.strCardWord}></CardButtons>
+      <CardButtons
+        strCardWord={props.strCardWord}
+        strAirtableID={props.strAirtableID}
+        strCorrectTimes={props.strCorrectTimes}
+        strWrongTimes={props.strWrongTimes}
+      ></CardButtons>
     </div>
   );
 };
