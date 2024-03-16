@@ -60,7 +60,7 @@ const Card = (props) => {
 
   return (
     <div>
-      <button onClick={fnSearchWord}>Start</button>
+      <button onClick={fnSearchWord}>Reveal Word</button>
       <div>Kana: {staReadKana}</div>
       <div>Kanji: {staReadKanji}</div>
       <div>Furigana: {staReadFurigana}</div>
