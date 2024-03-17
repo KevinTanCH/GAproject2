@@ -5,9 +5,6 @@ const CardButtons = (props) => {
   const [error, setError] = useState(null);
 
   const fnRemoveWord = async () => {
-    let numAddCorrect = 0;
-    numAddCorrect = Number(props.strCorrectTimes) + 1;
-    const strNumAddCorrect = numAddCorrect.toString();
     const url =
       "https://api.airtable.com/v0/appLSLw8PUd7mVHHF/WordList/" +
       props.strAirtableID;
@@ -65,7 +62,7 @@ const CardButtons = (props) => {
             {
               id: props.strAirtableID,
               fields: {
-                NumberWrong: strNumAddCorrect,
+                NumberRight: strNumAddCorrect,
               },
             },
           ],
