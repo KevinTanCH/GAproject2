@@ -7,22 +7,19 @@ const GradeList = () => {
   const [wordList, setWordList] = useState([]);
 
   const fnWordList = async () => {
-    const url = "https://kanjiapi.dev/v1/kanji/grade-1";
+    const url = "https://jlpt-vocab-api.vercel.app/api/words/random?level=5";
     console.log(url);
     setError(null);
     try {
       const res = await fetch(url, {
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
       if (!res.ok) {
         throw new Error("something went wrong2");
       }
       const rawData = await res.json();
-      console.log(rawData.records);
-      setWordList(rawData.records);
+      console.log(rawData);
+      setWordList(rawData);
     } catch (err) {
       if (err.name !== "AbortError") {
         setError(err.message);
@@ -39,11 +36,12 @@ const GradeList = () => {
   return (
     <div>
       <div>Kanji Grade 1 Word List</div>
-      {wordList.map((item) => {
+      <GradeWordListWords Word={wordList.word}></GradeWordListWords>
+      {/* {wordList.map((item) => {
         return (
           <GradeWordListWords key={item.id} Word={item}></GradeWordListWords>
         );
-      })}
+      })} */}
     </div>
   );
 };
