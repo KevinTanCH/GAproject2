@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import WordListWords from "../Components/WordListWords";
+import WordListAdd from "../Components/WordListAdd";
 
 const WordList = () => {
   console.log("Renders");
@@ -39,7 +40,8 @@ const WordList = () => {
 
   return (
     <div>
-      <div>Word List</div>
+      <WordListAdd wordList={wordList} setWordList={setWordList}></WordListAdd>
+      <h1>Word List</h1>
       {wordList.map((item) => {
         return (
           <WordListWords

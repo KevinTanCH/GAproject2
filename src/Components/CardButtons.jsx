@@ -22,9 +22,7 @@ const CardButtons = (props) => {
           records: [
             {
               id: props.strAirtableID,
-              fields: {
-                NumberWrong: strNumAddCorrect,
-              },
+              deleted: true,
             },
           ],
         }),
@@ -33,8 +31,7 @@ const CardButtons = (props) => {
         throw new Error("something went wrong2");
       }
       const rawData = await res.json();
-      console.log(rawData.records);
-      setWordList(rawData.records);
+      console.log(rawData);
     } catch (err) {
       if (err.name !== "AbortError") {
         setError(err.message);
@@ -72,8 +69,7 @@ const CardButtons = (props) => {
         throw new Error("something went wrong2");
       }
       const rawData = await res.json();
-      console.log(rawData.records);
-      setWordList(rawData.records);
+      console.log(rawData);
     } catch (err) {
       if (err.name !== "AbortError") {
         setError(err.message);
@@ -111,8 +107,7 @@ const CardButtons = (props) => {
         throw new Error("something went wrong2");
       }
       const rawData = await res.json();
-      console.log(rawData.records);
-      setWordList(rawData.records);
+      console.log(rawData);
     } catch (err) {
       if (err.name !== "AbortError") {
         setError(err.message);

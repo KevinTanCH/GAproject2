@@ -10,7 +10,7 @@ const FlashCard = () => {
   const [strCorrectTimes, setstrCorrectTimes] = useState("");
   const [strWrongTimes, setstrWrongTimes] = useState("");
 
-  const fnWordList = async () => {
+  const fnFlashCardWordList = async () => {
     const url = "https://api.airtable.com/v0/appLSLw8PUd7mVHHF/WordList";
     console.log(url);
     setError(null);
@@ -49,8 +49,8 @@ const FlashCard = () => {
 
   return (
     <>
-      <div>Flashcard {strCardWord}</div>
-      <button onClick={fnWordList}>Start</button>
+      <button onClick={fnFlashCardWordList}>Start</button>
+      <h1>Flashcard Word: {strCardWord}</h1>
       <Card
         strCardWord={strCardWord}
         strAirtableID={strAirtableID}

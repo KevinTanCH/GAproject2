@@ -27,7 +27,7 @@ const AddToWordList = (props) => {
       strWhatWord = props.staReadKanji;
       console.log(strWhatWord);
       for (let items of rawData.records) {
-        console.log("Checking if duplicate.");
+        console.log("Checking if duplicate word.");
         console.log(items.fields.Word + " " + strWhatWord);
         if (items.fields.Word === strWhatWord) {
           boolIsWordInList = true;

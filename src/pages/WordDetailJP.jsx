@@ -85,7 +85,6 @@ const WordDetailJP = (props) => {
           type="text"
           ref={refSearchWord}
           placeholder="Type here to search Word"
-          defaultValue="辞書"
           className="col-md-3"
         ></input>
         <button onClick={fnSearchWord}>Search Word</button>
