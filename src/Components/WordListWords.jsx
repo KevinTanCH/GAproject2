@@ -43,7 +43,7 @@ const WordListWords = (props) => {
       <div className="col-sm-2">Word: {props.Word}</div>
       <div className="col-sm-2">Correct Times: {props.NumberRight}</div>
       <div className="col-sm-2">Wrong Times: {props.NumberWrong}</div>
-      <button className="col-sm-2" onClick={fnDeleteWord}>
+      <button className="col-sm-1" onClick={fnDeleteWord}>
         delete
       </button>
     </div>

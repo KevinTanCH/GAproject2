@@ -4,7 +4,6 @@ import WordDetailJP from "../pages/WordDetailJP";
 import WordList from "../pages/WordList";
 import FlashCard from "../pages/FlashCard";
 import NotFound from "../pages/NotFound";
-import GradeList from "./GradeList";
 import NavBar from "./NavBar";
 
 const MainDisplayJP = () => {
@@ -18,8 +17,6 @@ const MainDisplayJP = () => {
         <Route path="wordlist" element={<WordList></WordList>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-
-      {/* <GradeList></GradeList> */}
     </>
   );
 };

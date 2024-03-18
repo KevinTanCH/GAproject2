@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Card from "../Components/Card";
 
 const FlashCard = () => {
@@ -9,6 +9,7 @@ const FlashCard = () => {
   const [strAirtableID, setstrAirtableID] = useState("");
   const [strCorrectTimes, setstrCorrectTimes] = useState("");
   const [strWrongTimes, setstrWrongTimes] = useState("");
+  const refFromWhichWordList = useRef();
 
   const fnFlashCardWordList = async () => {
     const url = "https://api.airtable.com/v0/appLSLw8PUd7mVHHF/WordList";
@@ -43,13 +44,67 @@ const FlashCard = () => {
     }
   };
 
+  const fnJLPTWordList = async () => {
+    const url =
+      "https://jlpt-vocab-api.vercel.app/api/words/random?level=" +
+      refFromWhichWordList.current.value;
+    console.log(url);
+    setError(null);
+    try {
+      const res = await fetch(url, {
+        method: "GET",
+      });
+      if (!res.ok) {
+        throw new Error("something went wrong2");
+      }
+      const rawData = await res.json();
+      console.log(rawData);
+      setWordList(rawData);
+      setstrCardWord(wordList.word);
+      console.log(strCardWord);
+      setstrAirtableID("No ID as Not Airtable");
+      console.log("No ID as Not Airtable");
+      setstrWrongTimes("No wrong as Not Airtable");
+      setstrCorrectTimes("No right as Not Airtable");
+    } catch (err) {
+      if (err.name !== "AbortError") {
+        setError(err.message);
+        console.log(error);
+      }
+    }
+  };
+
+  const fnStartFlashCard = async () => {
+    try {
+      if (refFromWhichWordList.current.value === "Airtable") {
+        fnFlashCardWordList();
+      } else {
+        fnJLPTWordList();
+      }
+    } catch (err) {
+      if (err.name !== "AbortError") {
+        console.log(error);
+      }
+    }
+  };
+
   useEffect(() => {
     return;
   }, [strCardWord]);
 
   return (
     <>
-      <button onClick={fnFlashCardWordList}>Start</button>
+      <div>
+        <select ref={refFromWhichWordList}>
+          <option value="Airtable">Personal Word List</option>
+          <option value="5">JLPT N5</option>
+          <option value="4">JLPT N4</option>
+          <option value="3">JLPT N3</option>
+          <option value="2">JLPT N2</option>
+          <option value="1">JLPT N1</option>
+        </select>
+        <button onClick={fnStartFlashCard}>Start</button>
+      </div>
       <h1>Flashcard Word: {strCardWord}</h1>
       <Card
         strCardWord={strCardWord}

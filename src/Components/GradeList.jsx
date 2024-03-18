@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import GradeWordListWords from "./GradeWordListWords";
 
 const GradeList = () => {
   console.log("Renders");
   const [error, setError] = useState(null);
   const [wordList, setWordList] = useState([]);
 
-  const fnWordList = async () => {
+  const fnJLPTWordList = async () => {
     const url = "https://jlpt-vocab-api.vercel.app/api/words/random?level=5";
     console.log(url);
     setError(null);
@@ -29,14 +28,14 @@ const GradeList = () => {
   };
 
   useEffect(() => {
-    fnWordList();
+    fnJLPTWordList();
     return;
   }, []);
 
   return (
     <div>
       <div>Kanji Grade 1 Word List</div>
-      <GradeWordListWords Word={wordList.word}></GradeWordListWords>
+      <div>{wordList.word}</div>
     </div>
   );
 };

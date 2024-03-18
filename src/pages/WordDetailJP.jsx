@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import AddToWordList from "../Components/AddToWordList";
+import styles from "../css/Main.module.css";
 
 const WordDetailJP = (props) => {
   console.log("Renders");
@@ -75,7 +76,7 @@ const WordDetailJP = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.renderBox}>
       <div>
         <select ref={refSearchType}>
           <option value="words">Word</option>
