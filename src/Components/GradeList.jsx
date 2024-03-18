@@ -37,11 +37,6 @@ const GradeList = () => {
     <div>
       <div>Kanji Grade 1 Word List</div>
       <GradeWordListWords Word={wordList.word}></GradeWordListWords>
-      {/* {wordList.map((item) => {
-        return (
-          <GradeWordListWords key={item.id} Word={item}></GradeWordListWords>
-        );
-      })} */}
     </div>
   );
 };
