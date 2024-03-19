@@ -1,46 +1,53 @@
-# GAproject1 (Turn-Based RPG)
+# GAproject2 (Japanese Dictionary and Flash card React App)
 
-GA Project 1 Turn-Based RPG by Kevin
+GA Project 2 Japanese Dictionary and Flash card React App by Kevin
 
-## Turn-Based RPG
+## Japanese Dictionary and Flash card
 
-This is a turn-based RPG game. I wanted to make a simple turn-based RPG game using Javascript. As of now it is mainly text based. Items in the game are inspired by common game items and historical real world items. The monsters are inspired by Mythological creatures.
+This is Japanese Dictionary and Flash card React App. I honestly didn't know what I wanted to do for project 2 so I decided to make something that I would use personally. I have completed only the most basic JLPT test (N5) in 2022 December. I do hope to take the higher grade test in the future but it isn't a huge priority.
 
 ### Screenshot(s):
 
-**_Battle Picture_**
-![Alt text](./READMEimages/BattlePic.png "Battle Picture")
-**_Shop Picture_**
-![Alt text](./READMEimages/ShopPic.png "Shop Picture")
+**_Main Page_**
+![Alt text](./READMEimages/1.png "Main page as dictionary.")
+Type a word to search. Add the word to your own personal word list.
+![Alt text](./READMEimages/2.png "Your own personal word list.")
+Your own personal word list. Delete or add more words.
+![Alt text](./READMEimages/3.png "Flash Card")
+Pick a word from your own personal word list and test yourself.
+![Alt text](./READMEimages/4.png "Flash Card revealed")
+Reveal the word and edit the points in your word list.
+![Alt text](./READMEimages/5.png "Flash Card word list choices")
+Pick words from a JLPT word list.
+![Alt text](./READMEimages/4.png "JLPT Flash Card revealed")
+Reveal the word.
+
+### Wireframe:
+
+![Alt text](./READMEimages/Wireframe.png "Wireframe")
+Wireframe of app
 
 ### Technologies Used:
 
-JavaScript, HTML, CSS
+React, JavaScript, HTML, CSS
+(Starter code and Full-react-app from General Assembly.)
+
+#### APIs used:
+
+- [Jotoba Dictionary API](https://jotoba.de/docs.html)
+- [JLPT Vocabulary API](https://jlpt-vocab-api.vercel.app/)
+- [Airtable API](https://airtable.com/)
 
 #### Resources:
 
 - [W3Schools](https://www.w3schools.com/js/)
-- [How to disable a button in JavaScript.](https://www.altcademy.com/blog/how-to-disable-a-button-in-javascript/)
-- [How to use querySelectorAll() and addEventListener()](https://www.queryselectorall.com/addeventlistener)
+- [Mozilla Developer Documentation](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started)
 
-### How to Play:
+### How to use:
 
-Open the HTML file and run the game. Click on start game to start.
-Each weapon have different damage types (pierce, hack and blunt) and effects. Each armour has different damage resistance. There are different monsters with different effects too
+Open the HTML file and run the React App. Click on it to start.
+Main page is a dictionary page and allows you to search the word. Flash Card allows you to test yourself from different word lists. Word list is your own personal word list that you've added.
 
 ### Planned future enhancements (icebox items).
 
-- Able to save and load file.
-- Game over restart button
-- Character edit
-- More Charaters and more monsters pieces
-- Different skills with different effects
-- More set of monsters
-- Loot Items
-- Loot list
-- Different consumables
-- Square tile or Hexagonal town
-- Movement mechanics
-- AI movement and smart AI
-- animtation and graphics
-- And more...!
+- Add more languages and more users.
