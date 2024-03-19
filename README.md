@@ -51,3 +51,7 @@ Main page is a dictionary page and allows you to search the word. Flash Card all
 ### Planned future enhancements (icebox items).
 
 - Add more languages and more users.
+- Use modal to edit counts in user's word list.
+- More information like Kanji readings and pitch.
+- Darkmode.
+- Link in word list to search the word.
