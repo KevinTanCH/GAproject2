@@ -1,6 +1,6 @@
 .renderBox {
-  border: 1vh;
+  border: 1vw;
   border-color: black;
-  margin: 1vh, 1vh 1vh 1vh;
-  padding: 1vh, 1vh 1vh 1vh;
+  margin: 1vw 1vw 1vw 1vw;
+  padding: 1vw 1vw 1vw 1vw;
 }

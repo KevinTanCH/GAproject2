@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Card from "../Components/Card";
+import styles from "../css/Main.module.css";
 
 const FlashCard = () => {
   console.log("Renders");
@@ -93,7 +94,7 @@ const FlashCard = () => {
   }, [strCardWord]);
 
   return (
-    <>
+    <div className={styles.renderBox}>
       <div>
         <select ref={refFromWhichWordList}>
           <option value="Airtable">Personal Word List</option>
@@ -112,7 +113,7 @@ const FlashCard = () => {
         strCorrectTimes={strCorrectTimes}
         strWrongTimes={strWrongTimes}
       ></Card>
-    </>
+    </div>
   );
 };
 

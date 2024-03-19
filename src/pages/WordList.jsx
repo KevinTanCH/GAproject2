@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import WordListWords from "../Components/WordListWords";
 import WordListAdd from "../Components/WordListAdd";
+import styles from "../css/Main.module.css";
 
 const WordList = () => {
   console.log("Renders");
@@ -39,7 +40,7 @@ const WordList = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.renderBox}>
       <WordListAdd wordList={wordList} setWordList={setWordList}></WordListAdd>
       <h1>Word List</h1>
       {wordList.map((item) => {
